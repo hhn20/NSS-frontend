@@ -1,0 +1,99 @@
+<body class="bg-dark">
+  <div class="container mt-4 bg-dark">
+      <h2 class="text-info">All student members of NSS</h2>
+      <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Deleted Succesfully!</strong> The student has been deleted from the student table.
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <table class="table table-hover table-dark">
+          <thead>
+            <tr class="bg-info">
+              <th scope="col">Name</th>
+              <th scope="col">USN</th>
+              <th scope="col">Role</th>
+              <th scope="col">Team</th>
+              <th scope="col">Phone No</th>
+              <th scope="col">delete</th>
+              <th scope="col">update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of studlist">
+              <td>{{item.name}}</td>
+              <td>{{item.usn}}</td>
+              <td>{{item.role}}</td>
+              <td>{{item.team}}</td>
+              <td>{{item.ph_no}}</td>
+              <td><i class="fa fa-cut" (click)="removeStud(item.usn)" style="font-size:20px;color:red;"></i></td>
+              <td><a routerLink="/update-student/{{item.usn}}"><i class="fa fa-edit" style="font-size:20px;color:yellow;"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <h2 class="text-warning">Students eligible for NSS certificate</h2>
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr class="bg-warning">
+              <th scope="col">Name</th>
+              <th scope="col">USN</th>
+              <th scope="col">BDC</th>
+              <th scope="col">Team</th>
+              <th scope="col">Special Camp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of certlist">
+              <td>{{item.name}}</td>
+              <td>{{item.usn}}</td>
+              <td>{{item.BDC}}</td>
+              <td>{{item.team}}</td>
+              <td>{{item.specialCamp}}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <h2 class="text-danger">List of emergency blood donors</h2>
+        <table class="table table-hover table-dark">
+          <thead>
+            <tr class="bg-danger">
+              <th scope="col">Name</th>
+              <th scope="col">USN</th>
+              <th scope="col">Phone No</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of donlist">
+              <td>{{item.name}}</td>
+              <td>{{item.usn}}</td>
+              <td>{{item.ph_no}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="text-light">Search for a student</h2>
+        <form [formGroup]="studsearch" (ngSubmit)="studentdets()">
+          <div class="form-group">
+            <label class="text-primary">Enter USN of the student to get his/her details:</label>
+            <input type="text" class="form-control bg-light" placeholder="Enter USN" formControlName="usn">
+          </div>
+          <button type="submit" class="btn btn-primary mb-4">Search</button>
+        </form>
+        <div *ngIf="jumbo" class="jumbotron">
+          <p class="display-4">{{u[0].name}} <span class="display-5">({{u[0].usn}})</span></p>
+          <p class="lead">NSS {{u[0].role}}<br>{{u[0].ph_no}}</p>
+          <hr>
+          <p>
+            team name: {{u[0].team}}<br>
+            no. of special camps attended: {{u[0].specialCamp}} <br>
+            no. of blood donation camps attended: {{u[0].BDC}} <br>
+          </p>
+          <p *ngIf="u[0].emergencyDonor" class="text-danger">Emergency Donor</p>
+          <p class="lead">
+            <a class="btn btn-primary btn text-light" (click)="clear()" role="button">close</a>
+          </p>
+        </div>
+  </div>
+  
+</body>

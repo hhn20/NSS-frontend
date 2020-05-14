@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h2 class="text-success">Add student to NSS</h2>
+
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Details Added!</strong> The data has been entered in student table.
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    <form [formGroup]="addStud" (ngSubmit)="putData()">
+    <div class="form-group">
+      <label class="text-success">Name</label>
+      <input type="text" class="form-control bg-light" placeholder="Enter name" formControlName="name">
+      <label class="text-success">USN (please make sure the usn is unique)</label>
+      <input type="text" class="form-control" placeholder="Enter USN" formControlName="usn">
+      <label class="text-success">Role in NSS</label>
+      <input type="text" class="form-control bg-light" placeholder="member/leader/coordinator" formControlName="role">
+      <label class="text-success">Team name</label>
+      <input type="text" class="form-control" placeholder="Enter team name" formControlName="team">
+      <label class="text-success">Phone Number</label>
+      <input type="text" class="form-control" placeholder="Enter phone no." formControlName="ph_no">
+      <label class="text-success">No. of BDCs volunteered in</label>
+      <input type="text" class="form-control" placeholder="Enter no. of BDCs" formControlName="BDC">
+      <label class="text-success">No. of special camps attended</label>
+      <input type="text" class="form-control" placeholder="Enter no. of special camps" formControlName="specialCamp">
+      <label class="text-success">Is he/she an emergency donor?  </label><br>
+      <input type="text" class="form-control" placeholder="true or false" formControlName="emergencyDonor">
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+    </form>
+</div>
+

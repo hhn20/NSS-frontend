@@ -1,0 +1,31 @@
+<div class="container">
+
+    <h2 class="text-warning">Edit student information</h2>
+
+    <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Details Updated!</strong> The data has been updated in student table.
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    <form [formGroup]="updateStud" (ngSubmit)="editData()">
+        <div class="form-group">
+            <label class="text-warning">Name</label>
+            <input type="text" class="form-control bg-light" placeholder="Enter name" formControlName="name">
+            <label class="text-warning">Role in NSS</label>
+            <input type="text" class="form-control bg-light" placeholder="member/leader/coordinator" formControlName="role">
+            <label class="text-warning">Team name</label>
+            <input type="text" class="form-control" placeholder="Enter team name" formControlName="team">
+            <label class="text-warning">Phone Number</label>
+            <input type="text" class="form-control" placeholder="Enter phone no." formControlName="ph_no">
+            <label class="text-warning">No. of BDCs volunteered in</label>
+            <input type="text" class="form-control" placeholder="Enter no. of BDCs" formControlName="BDC">
+            <label class="text-warning">No. of special camps attended</label>
+            <input type="text" class="form-control" placeholder="Enter no. of special camps" formControlName="specialCamp">
+            <label class="text-warning">Is he/she an emergency donor?</label>
+            <input type="text" class="form-control" placeholder="true or false" formControlName="emergencyDonor">
+          </div>
+    <button type="submit" class="btn btn-warning">Update</button>
+    </form>
+</div>

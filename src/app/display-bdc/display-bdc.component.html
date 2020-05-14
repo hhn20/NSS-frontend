@@ -1,0 +1,33 @@
+<body class="bg-dark">
+    <div class="container mt-4 bg-dark">
+        <h2 class="text-danger">People willing to donate blood in the upcoming blood donation camp</h2>
+        <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Deleted Succesfully!</strong> The data has been deleted from BDC table.
+          <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr class="bg-danger">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">e-mail address</th>
+                <th scope="col">Phone No</th>
+                <th scope="col">delete</th>
+                <th scope="col">update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of bdclist">
+                <td>{{item._id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.ph_no}}</td>
+                <td><i (click)="deleteBdc(item._id)" class="fa fa-cut" style="font-size:20px;color:red;"></i></td>
+                <td><a routerLink="/update-bdc/{{item._id}}"><i class="fa fa-edit" style="font-size:20px;color:yellow;"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
