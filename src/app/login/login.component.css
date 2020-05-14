@@ -1,6 +1,10 @@
-cardbox {
-    display: flex;
+.mainbox {
+    display: flex; 
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
+}
+  @media only screen and (max-width: 600px) {
+  .mainbox {
+      display: flex; 
+      flex-direction: column;
+  }    
 }
