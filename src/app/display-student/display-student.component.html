@@ -1,5 +1,29 @@
 <body class="bg-dark">
   <div class="container mt-4 bg-dark">
+
+    <h2 class="text-light">Search for a student</h2>
+    <form [formGroup]="studsearch" (ngSubmit)="studentdets()">
+      <div class="form-group">
+        <label class="text-primary">Enter USN of the student to get his/her details:</label>
+        <input type="text" class="form-control bg-light" placeholder="Enter USN" formControlName="usn">
+      </div>
+      <button type="submit" class="btn btn-primary mb-4">Search</button>
+    </form>
+    <div *ngIf="jumbo" class="jumbotron">
+      <p class="display-4">{{u[0].name}} <span class="display-5">({{u[0].usn}})</span></p>
+      <p class="lead">NSS {{u[0].role}}<br>{{u[0].ph_no}}</p>
+      <hr>
+      <p>
+        team name: {{u[0].team}}<br>
+        no. of special camps attended: {{u[0].specialCamp}} <br>
+        no. of blood donation camps attended: {{u[0].BDC}} <br>
+      </p>
+      <p *ngIf="u[0].emergencyDonor" class="text-danger">Emergency Donor</p>
+      <p class="lead">
+        <a class="btn btn-primary btn text-light" (click)="clear()" role="button">close</a>
+      </p>
+    </div>
+
       <h2 class="text-info">All student members of NSS</h2>
       <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Deleted Succesfully!</strong> The student has been deleted from the student table.
@@ -72,28 +96,6 @@
           </tbody>
         </table>
 
-        <h2 class="text-light">Search for a student</h2>
-        <form [formGroup]="studsearch" (ngSubmit)="studentdets()">
-          <div class="form-group">
-            <label class="text-primary">Enter USN of the student to get his/her details:</label>
-            <input type="text" class="form-control bg-light" placeholder="Enter USN" formControlName="usn">
-          </div>
-          <button type="submit" class="btn btn-primary mb-4">Search</button>
-        </form>
-        <div *ngIf="jumbo" class="jumbotron">
-          <p class="display-4">{{u[0].name}} <span class="display-5">({{u[0].usn}})</span></p>
-          <p class="lead">NSS {{u[0].role}}<br>{{u[0].ph_no}}</p>
-          <hr>
-          <p>
-            team name: {{u[0].team}}<br>
-            no. of special camps attended: {{u[0].specialCamp}} <br>
-            no. of blood donation camps attended: {{u[0].BDC}} <br>
-          </p>
-          <p *ngIf="u[0].emergencyDonor" class="text-danger">Emergency Donor</p>
-          <p class="lead">
-            <a class="btn btn-primary btn text-light" (click)="clear()" role="button">close</a>
-          </p>
-        </div>
   </div>
   
 </body>

@@ -1,0 +1,9 @@
+input[type=text]:focus {
+    border: 2px solid #ffc107;
+    background-color: #ffffcc;
+}
+
+input[type=email]:focus {
+    border: 2px solid #ffc107;
+    background-color: #ffffcc;
+}

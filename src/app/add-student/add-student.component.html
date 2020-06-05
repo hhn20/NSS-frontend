@@ -12,11 +12,11 @@
     <form [formGroup]="addStud" (ngSubmit)="putData()">
     <div class="form-group">
       <label class="text-success">Name</label>
-      <input type="text" class="form-control bg-light" placeholder="Enter name" formControlName="name">
+      <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
       <label class="text-success">USN (please make sure the usn is unique)</label>
       <input type="text" class="form-control" placeholder="Enter USN" formControlName="usn">
       <label class="text-success">Role in NSS</label>
-      <input type="text" class="form-control bg-light" placeholder="member/leader/coordinator" formControlName="role">
+      <input type="text" class="form-control" placeholder="member/leader/coordinator" formControlName="role">
       <label class="text-success">Team name</label>
       <input type="text" class="form-control" placeholder="Enter team name" formControlName="team">
       <label class="text-success">Phone Number</label>

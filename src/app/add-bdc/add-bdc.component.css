@@ -1,3 +1,13 @@
 p {
     color: grey;
 }
+
+input[type=text]:focus {
+    border: 2px solid #28a745;
+    background-color: #d9f2d9;
+}
+
+input[type=email]:focus {
+    border: 2px solid #28a745;
+    background-color: #d9f2d9;
+}
