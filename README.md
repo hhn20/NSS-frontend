@@ -1,3 +1,3 @@
 6th sem web dev project
-
-'''nss-details.surge.sh/'''
+---
+visit: nss-details.surge.sh/
